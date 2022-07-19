@@ -1,0 +1,6 @@
+sensors:
+  sensor_id: kitchen_border
+  mac_id: 9C880F5A9B
+  sensor_type:
+    moisture
+    temperature

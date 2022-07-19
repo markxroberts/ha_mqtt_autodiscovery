@@ -1,2 +1,2 @@
-stop_programs:
-    description: Stop any running programs or zones.
+start:
+    description: Autodiscovery of MQTT entries defined in YAML file
