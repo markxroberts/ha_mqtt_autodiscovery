@@ -3,7 +3,7 @@ import yaml
 import logging
 import asyncio
 import socket
-from homeassistant.core.components import mqtt
+from homeassistant.components import mqtt
 from typing import Optional
 from yaml.loader import SafeLoader
 import aiohttp

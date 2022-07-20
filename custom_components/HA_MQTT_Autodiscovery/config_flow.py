@@ -1,7 +1,7 @@
 """Adds config flow for Blueprint."""
 from homeassistant import config_entries
 from homeassistant.core import callback
-from homeassistant.core.components.mqtt.const import ATTR_DISCOVERY_TOPIC
+from homeassistant.components.mqtt.const import ATTR_DISCOVERY_TOPIC
 from os.path import exists
 import voluptuous as vol
 

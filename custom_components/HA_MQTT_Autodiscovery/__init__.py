@@ -8,10 +8,11 @@ from homeassistant.exceptions import ConfigEntryNotReady
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 
-from .parse import HAMQTTAutodiscoveryParse
+from .mqtt import HAMQTTAutodiscovery
 
 from .const import (
     DATA_FILE,
+    HA_AUTODISCOVERY_PREFIX,
 )
 
 SCAN_INTERVAL = timedelta(seconds=30)
@@ -33,9 +34,9 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
     datafile = entry.data.get(DATA_FILE)
 
     session = async_get_clientsession(hass)
-    parse = HAMQTTAutodiscoveryParse(datafile)
+    mqtt = HAMQTTAutodiscovery(datafile)
 
-    coordinator = HAMQTTAutodiscoveryDataUpdateCoordinator(hass, parse=parse)
+    coordinator = HAMQTTAutodiscoveryDataUpdateCoordinator(hass, mqtt=mqtt)
     await coordinator.async_refresh()
 
     if not coordinator.last_update_success:
@@ -58,7 +59,7 @@ class HAMQTTAutodiscoveryDataUpdateCoordinator(DataUpdateCoordinator):
     """Class to manage fetching data from the API."""
 
     def __init__(
-        self, hass: HomeAssistant, parse: HAMQTTAutodiscoveryParse
+        self, hass: HomeAssistant, mqtt: HAMQTTAutodiscoveryMQTT
     ) -> None:
         """Initialize."""
         self.api = parse
