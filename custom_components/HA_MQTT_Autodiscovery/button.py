@@ -1,6 +1,6 @@
 """Switch platform for integration_blueprint."""
 from homeassistant.components.button import ButtonEntity
-from .mqtt import HAMQTTAutodiscoveryPublish
+from .mqtt import HAMQTTAutodiscovery
 from .const import DEFAULT_NAME, DOMAIN, ICON, BUTTON
 
 
@@ -15,7 +15,7 @@ class HAMQTTAutodiscoveryButton(ButtonEntity):
 
     async def async_press(self, **kwargs):  # pylint: disable=unused-argument
         """Turn on the switch."""
-        HAMQTTAutodiscoveryPublish()
+        HAMQTTAutodiscovery()
         await self.coordinator.api.HAMQTTAutodiscoveryPublish()
         await self.coordinator.async_request_refresh()
 

@@ -5,7 +5,7 @@ from homeassistant.components.mqtt.const import ATTR_DISCOVERY_TOPIC
 from os.path import exists
 import voluptuous as vol
 
-from .parse import HAMQTTAutodiscoveryParse
+from .mqtt import HAMQTTAutodiscoveryParse
 from .const import (
     DATA_FILE,
     HA_DISCOVERY_PREFIX,
