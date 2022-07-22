@@ -21,7 +21,6 @@ PLATFORMS = [BINARY_SENSOR, SENSOR, BUTTON]
 
 
 # Configuration and options
-CONF_ENABLED = "enabled"
 DATA_FILE = "data_file"
 HA_AUTODISCOVERY_PREFIX = "ha_prefix"
 

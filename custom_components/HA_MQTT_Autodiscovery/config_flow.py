@@ -5,10 +5,10 @@ from homeassistant.components.mqtt.const import ATTR_DISCOVERY_TOPIC
 from os.path import exists
 import voluptuous as vol
 
-from .mqtt import HAMQTTAutodiscoveryParse
+from .mqtt import HAMQTTAutodiscovery
 from .const import (
     DATA_FILE,
-    HA_DISCOVERY_PREFIX,
+    HA_AUTODISCOVERY_PREFIX,
     DOMAIN,
     PLATFORMS,
 )
@@ -48,7 +48,7 @@ class HAMQTTAutoDiscoveryFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         user_input = {}
         # Provide defaults for form
         user_input[DATA_FILE] = ""
-        user_input[HA_DISCOVERY_PREFIX] = ATTR_DISCOVERY_TOPIC
+        user_input[HA_AUTODISCOVERY_PREFIX] = ATTR_DISCOVERY_TOPIC
 
         return await self._show_config_form(user_input)
 
@@ -64,7 +64,7 @@ class HAMQTTAutoDiscoveryFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             data_schema=vol.Schema(
                 {
                     vol.Required(DATA_FILE, default=user_input[DATA_FILE]): str,
-                    vol.Required(HA_DISCOVERY_PREFIX, default=user_input[HA_DISCOVERY_PREFIX]): str,
+                    vol.Required(HA_AUTODISCOVERY_PREFIX, default=user_input[HA_DISCOVERY_PREFIX]): str,
                 }
             ),
             errors=self._errors,

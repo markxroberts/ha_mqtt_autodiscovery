@@ -1,6 +1,15 @@
-sensors:
-  sensor_id: kitchen_border
+kitchen_border
   mac_id: 9C880F5A9B
   sensor_type:
     moisture
     temperature
+dining_room_border
+  mac_id: E9B35BDB1B
+  sensor_type:
+    moisture
+    temperature
+pond_temperature
+  mac_id: FF4B09618B
+  sensor_type:
+    temperature
+  

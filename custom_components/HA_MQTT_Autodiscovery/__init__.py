@@ -12,7 +12,6 @@ from .mqtt import HAMQTTAutodiscovery
 
 from .const import (
     DATA_FILE,
-    HA_AUTODISCOVERY_PREFIX,
 )
 
 SCAN_INTERVAL = timedelta(seconds=30)
@@ -33,7 +32,6 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
 
     datafile = entry.data.get(DATA_FILE)
 
-    session = async_get_clientsession(hass)
     mqtt = HAMQTTAutodiscovery(datafile)
 
     coordinator = HAMQTTAutodiscoveryDataUpdateCoordinator(hass, mqtt=mqtt)
@@ -59,10 +57,10 @@ class HAMQTTAutodiscoveryDataUpdateCoordinator(DataUpdateCoordinator):
     """Class to manage fetching data from the API."""
 
     def __init__(
-        self, hass: HomeAssistant, mqtt: HAMQTTAutodiscoveryMQTT
+        self, hass: HomeAssistant,
     ) -> None:
         """Initialize."""
-        self.api = parse
+        self.api = mqtt
         self.platforms = []
 
         super().__init__(hass, _LOGGER, name=DOMAIN, update_interval=SCAN_INTERVAL)
