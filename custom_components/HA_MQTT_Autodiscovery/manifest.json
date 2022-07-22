@@ -1,6 +1,6 @@
 {
   "domain": "ha_mqtt_autodiscovery",
-  "name": "HA mqtt autodiscovery",
+  "name": "HA MQTT autodiscovery",
   "version": "0.0.1",
   "documentation": "https://github.com/markxroberts/ha_mqtt_autodiscovery",
   "issue_tracker": "https://github.com/markxroberts/ha_mqtt_autodiscovery/issues",

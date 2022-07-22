@@ -1,7 +1,7 @@
 """Constants for integration_blueprint."""
 # Base component constants
 NAME = "HA MQTT Autodiscovery"
-DOMAIN = "HA_MQTT_autodiscovery"
+DOMAIN = "ha_mqtt_autodiscovery"
 DOMAIN_DATA = f"{DOMAIN}_data"
 VERSION = "0.0.1"
 ATTRIBUTION = ""
